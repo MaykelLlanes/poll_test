@@ -22,7 +22,7 @@ def create_view(request):
     form = PersonForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/poll")
+        return HttpResponseRedirect("/")
 
     context['form'] = form
     return render(request, "poll/create_view.html", context)
@@ -66,7 +66,7 @@ def update_view(request, id):
 
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/poll")
+        return HttpResponseRedirect("/")
 
     # add form dictionary to context
     context["form"] = form
@@ -82,7 +82,7 @@ def delete_view(request, id):
 
     if request.method == "POST":
         obj.delete()
-        return HttpResponseRedirect("/poll")
+        return HttpResponseRedirect("/")
 
     return render(request, "poll/delete_view.html", context)
 

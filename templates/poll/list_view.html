@@ -1,0 +1,40 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Polls{% endblock title %}
+
+{% block content %}
+<div class="main">
+    
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Informacion</th>
+            <th scope="col">Nivel de escolaridad</th>
+            <th scope="col">Peso corporal</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for data in dataset %}
+          <tr>
+            <th>{{ data.name }}</th>
+            <td>{{ data.age }}</td>
+            <td>{{ data.sex }}</td>
+            <td>{{ data.personal_information }}</td>
+            <td>{{ data.education_level }}</td>
+            <td>{{ data.body_weight }}</td>
+            <td><a href="{% url 'poll:update' data.id %}">Editar</a>  <a href="{% url 'poll:delete' data.id %}">Eliminar</a>  <a href="{% url 'poll:pdf' data.id %}">pdf</a></td>
+          </tr>
+          {% endfor %}
+          </tbody>
+          </table>
+          <br>
+          <!-- <button type="button" class="btn btn-primary"> -->
+              <a href="{% url 'poll:create' %}">Nueva encuesta</a>
+            <!-- </button> -->
+</div>
+{% endblock %}

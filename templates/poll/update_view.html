@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Update Poll{% endblock title %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data"> 
+    <div class="form-group">
+        <!-- Security token -->
+        {% csrf_token %}
+    
+        <!-- Using the formset -->
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success" >Actualizar</button>
+    </div>
+</form>
+{% endblock content %}

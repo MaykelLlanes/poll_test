@@ -3,33 +3,27 @@
 ## 🚀 Features
 
 - Django 3.1 & Python 3.8
-- Install via [Pip](https://pypi.org/project/pip/), [Pipenv](https://pypi.org/project/pipenv/), or [Docker](https://www.docker.com/)
+- Install via [Pip](https://pypi.org/project/pip/)
 - User log in/out, sign up, password reset via [django-allauth](https://github.com/pennersr/django-allauth)
 - Static files configured with [Whitenoise](http://whitenoise.evans.io/en/stable/index.html)
 - Styling with [Bootstrap v4](https://github.com/twbs/bootstrap)
 - Debugging with [django-debug-toolbar](https://github.com/jazzband/django-debug-toolbar)
 - DRY forms with [django-crispy-forms](https://github.com/django-crispy-forms/django-crispy-forms)
-
-![Homepage](homepage.png)
 ----
 
 ## Table of Contents
 * **[Installation](#installation)**
   * [Pip](#pip)
-  * [Pipenv](#pipenv)
-  * [Docker](#docker)
 * [Setup](#setup)
-* [Contributing](#contributing)
-* [Support](#support)
 * [License](#license)
 
 ----
 
 ## 📖 Installation
-DjangoX can be installed via Pip, Pipenv, or Docker depending upon your setup. To start, clone the repo to your local computer and change into the proper directory.
+DjangoX can be installed via Pip. To start, clone the repo to your local computer and change into the proper directory.
 
 ```
-$ git clone https://github.com/wsvincent/djangox.git
+$ git clone https://github.com/MaykelLlanes/poll_test.git
 $ cd djangox
 ```
 
@@ -43,37 +37,6 @@ $ source djangox/bin/activate
 (djangox) $ python manage.py createsuperuser
 (djangox) $ python manage.py runserver
 # Load the site at http://127.0.0.1:8000
-```
-
-### Pipenv
-
-```
-$ pipenv install
-$ pipenv shell
-(djangox) $ python manage.py migrate
-(djangox) $ python manage.py createsuperuser
-(djangox) $ python manage.py runserver
-# Load the site at http://127.0.0.1:8000
-```
-
-### Docker
-
-```
-$ docker build .
-$ docker-compose up -d
-$ docker-compose exec web python manage.py migrate
-$ docker-compose exec web python manage.py createsuperuser
-# Load the site at http://127.0.0.1:8000
-```
-
-For Docker, the `INTERNAL_IPS` configuration in `config/settings.py` must be updated to the following:
-
-```python
-# config/settings.py
-# django-debug-toolbar
-import socket
-hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
 ```
 
 ## Setup
@@ -114,23 +77,7 @@ $ docker-compose build
 # Run Migrations
 $ docker-compose run --rm web python manage.py migrate
 
-# Create a Superuser
-$ docker-compose run --rm web python manage.py createsuperuser
 
-# Run Django on http://localhost:8000/
-$ docker-compose up
-
-# Run Django in background mode
-$ docker-compose up -d
-
-# Stop all running containers
-$ docker-compose down
-
-# Run Tests
-$ docker-compose run --rm web pytest
-
-# Re-build PIP requirements
-$ docker-compose run --rm web pip-compile requirements/requirements.in
 ```-->
 
 <!-- ## Next Steps

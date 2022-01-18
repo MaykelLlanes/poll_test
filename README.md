@@ -23,7 +23,7 @@
 DjangoX can be installed via Pip. To start, clone the repo to your local computer and change into the proper directory.
 
 ```
-$ git clone https://github.com/wsvincent/djangox.git
+$ git clone https://github.com/MaykelLlanes/poll_test.git
 $ cd djangox
 ```
 
